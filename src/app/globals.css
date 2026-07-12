@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-wide;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.spotlight.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Signature element: event cards styled like a physical ticket stub */
+  .ticket-card {
+    @apply relative flex flex-col bg-white rounded-card overflow-hidden border border-black/5 shadow-sm
+           transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .ticket-perforation {
+    @apply relative border-t-2 border-dashed border-black/10;
+  }
+  .ticket-perforation::before,
+  .ticket-perforation::after {
+    content: "";
+    @apply absolute w-4 h-4 bg-paper rounded-full -top-2;
+  }
+  .ticket-perforation::before { left: -8px; }
+  .ticket-perforation::after { right: -8px; }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-spotlight px-6 py-3 font-semibold text-ink
+           transition-colors hover:bg-spotlight-light focus-visible:outline-spotlight disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-paper px-6 py-3 font-semibold text-paper
+           transition-colors hover:bg-paper hover:text-stage disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-stage px-6 py-3 font-semibold text-stage
+           transition-colors hover:bg-stage hover:text-paper disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-ink placeholder:text-mist
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-spotlight;
+  }
+  .field-error {
+    @apply mt-1 text-sm text-ember-dark;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden bg-black/5 before:absolute before:inset-0
+           before:-translate-x-full before:animate-[shimmer_1.5s_infinite]
+           before:bg-gradient-to-r before:from-transparent before:via-black/10 before:to-transparent;
+  }
+
+  .category-chip {
+    @apply inline-flex items-center rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-ink
+           transition-colors hover:border-spotlight hover:text-spotlight-dark;
+  }
+  .category-chip-active {
+    @apply border-spotlight bg-spotlight text-ink;
+  }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
