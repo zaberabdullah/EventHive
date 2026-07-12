@@ -19,7 +19,7 @@ const legal = [
 ];
 
 const social = [
-  { href: "https://x.com", label: "X / Twitter" },
+  { href: "https://x.com", label: "X" },
   { href: "https://instagram.com", label: "Instagram" },
   { href: "https://linkedin.com", label: "LinkedIn" },
 ];
@@ -38,8 +38,8 @@ export default function Footer() {
           </p>
           <div className="mt-5 space-y-1 text-sm text-paper/70">
             <p><a href="mailto:hello@eventhive.app" className="hover:text-spotlight">hello@eventhive.app</a></p>
-            <p><a href="tel:+18005550142" className="hover:text-spotlight">+1 (800) 555-0142</a></p>
-            <p>142 Marquee Ave, Austin, TX</p>
+            <p><a href="tel:+8808005550142" className="hover:text-spotlight">+88 0 800 555 0142</a></p>
+            <p>142 Old Jashore Road, Khulna, Bangladesh</p>
           </div>
         </div>
 

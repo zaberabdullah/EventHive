@@ -48,14 +48,14 @@ export default function ContactPage() {
                 <Phone className="mt-0.5 h-5 w-5 text-spotlight-dark" />
                 <div>
                   <p className="font-medium text-ink">Phone</p>
-                  <a href="tel:+18005550142" className="text-sm text-mist hover:text-ember-dark">+1 (800) 555-0142</a>
+                  <a href="tel:+8808005550142" className="text-sm text-mist hover:text-ember-dark">+88 0 800 555 0142</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 text-spotlight-dark" />
                 <div>
                   <p className="font-medium text-ink">Office</p>
-                  <p className="text-sm text-mist">142 Marquee Ave, Austin, TX 78701</p>
+                  <p className="text-sm text-mist">142 Old Jashore Road, Khulna, Bangladesh</p>
                 </div>
               </div>
             </div>
