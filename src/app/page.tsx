@@ -22,6 +22,17 @@ const CATEGORY_ICONS: Record<EventCategory, React.ElementType> = {
   Sports: Trophy,
 };
 
+const CATEGORY_STYLES: Record<EventCategory, { bg: string; border: string; icon: string }> = {
+  Music: { bg: "bg-spotlight/10", border: "border-spotlight/25", icon: "text-spotlight-dark" },
+  Workshop: { bg: "bg-ember/10", border: "border-ember/25", icon: "text-ember-dark" },
+  Festival: { bg: "bg-stage/10", border: "border-stage/20", icon: "text-stage-light" },
+  Tech: { bg: "bg-spotlight-dark/10", border: "border-spotlight-dark/25", icon: "text-spotlight-dark" },
+  Comedy: { bg: "bg-ember-dark/10", border: "border-ember-dark/25", icon: "text-ember-dark" },
+  Art: { bg: "bg-stage-light/10", border: "border-stage-light/25", icon: "text-stage-light" },
+  Food: { bg: "bg-spotlight-light/20", border: "border-spotlight-light/40", icon: "text-spotlight-dark" },
+  Sports: { bg: "bg-ember-light/15", border: "border-ember-light/30", icon: "text-ember-dark" },
+};
+
 const STATS = [
   { icon: CalendarCheck, value: "1,200+", label: "Events hosted" },
   { icon: MapPin, value: "40", label: "Cities covered" },
@@ -67,17 +78,18 @@ export default async function HomePage() {
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl tracking-wide text-ink">Browse by category</h2>
           <p className="mt-1 text-mist">Pick a lane, or explore all of them.</p>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {(Object.keys(CATEGORY_ICONS) as EventCategory[]).map((cat) => {
               const Icon = CATEGORY_ICONS[cat];
+              const style = CATEGORY_STYLES[cat];
               return (
                 <Link
                   key={cat}
                   href={`/explore?category=${cat}`}
-                  className="ticket-card items-center justify-center gap-3 p-6 text-center hover:border-spotlight"
+                  className={`flex flex-col items-center gap-3 rounded-card border ${style.bg} ${style.border} px-4 py-7 text-center transition-transform hover:-translate-y-0.5`}
                 >
-                  <Icon className="h-8 w-8 text-spotlight-dark" />
-                  <span className="mt-3 font-semibold text-ink">{cat}</span>
+                  <Icon className={`h-7 w-7 ${style.icon}`} strokeWidth={1.75} />
+                  <span className="text-sm font-semibold text-ink">{cat}</span>
                 </Link>
               );
             })}
